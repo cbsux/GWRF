@@ -147,11 +147,12 @@ model.plot_global_feature_importance(importance_type='gain')
 model.plot_local_partial_dependence(model_index=0, feature_index=[0,1])
 model.plot_global_partial_dependence(feature_index=[1])
 ```
-- lobal_feature_importance
+
+#### lobal_feature_importance
 ![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/local_feature_importance.png)
-- global_feature_importance
+#### global_feature_importance
 ![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/global_feature_importance.png)
-- local_partial_dependence
+#### local_partial_dependence
 ![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/local_partial_dependence.png)
-- global_partial_dependence
+#### global_partial_dependence
 ![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/global_partial_dependence.png)
