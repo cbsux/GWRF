@@ -104,6 +104,13 @@ print(bw)
 ## IV. Example of Code Usage
 Here is an example of using the GWRF library:
 ```python
+
+import libpysal as ps
+import numpy as np
+from gwrf import GWRF
+from select_bandwidth import SelectBandwidth
+from sklearn.metrics import r2_score, explained_variance_score, mean_squared_error
+
 data = ps.io.open(ps.examples.get_path('GData_utm.csv'))
 coords = np.array(list(zip(data.by_col('X'), data.by_col('Y'))))
 y = np.array(data.by_col('PctBach')).reshape(-1)
@@ -148,6 +155,7 @@ model.plot_local_partial_dependence(model_index=0, feature_index=[0,1])
 model.plot_global_partial_dependence(feature_index=[1])
 ```
 
+
 #### lobal_feature_importance
 ![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/local_feature_importance.png)
 #### global_feature_importance
@@ -156,3 +164,5 @@ model.plot_global_partial_dependence(feature_index=[1])
 ![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/local_partial_dependence.png)
 #### global_partial_dependence
 ![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/global_partial_dependence.png)
+
+
