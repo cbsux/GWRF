@@ -1,22 +1,32 @@
 import setuptools
+import os
 
-with open("README_PYTHON.md", "r", encoding="utf-8") as fh:
+FILE_PATH = os.path.dirname(os.path.abspath(__file__))
+with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
+
+# 读取requirements.txt文件
+requirements_path = os.path.join(FILE_PATH, 'requirements.txt')
+with open(requirements_path, 'r') as f:
+    requirements = f.read().splitlines()
 
 setuptools.setup(
     name="GWRF",
     version="1.0",
     author="ChiBeiSheng",
-    url='xxx',
+    url='https://github.com/cbsux/GWsetup.RF/tree/master',
     author_email="cbs3307821258@qq.com",
     description="Geographically Weighted Random Forest",
-    long_description="GWRF (Geographically Weighted Random Forest) is a Python library designed to incorporate the "
-                     "concept of geographical weighting into the random forest model, enabling regression analysis "
-                     "of data with spatial correlation. It integrates powerful tools such as numpy, xgboost, and sklearn, "
-                     "providing users with a range of functionalities from model training and prediction to feature "
-                     "importance assessment and partial dependence analysis, while also supporting model saving and loading",
+    long_description=long_description,
     long_description_content_type="text/markdown",
-    package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src"),
-    python_requires=">=3.6",
+    include_package_data=True,
+    package_data={'': ['*.txt', '*.md']},
+    packages=setuptools.find_packages(),
+    install_requires=requirements,
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires=">=3.8",
 )
