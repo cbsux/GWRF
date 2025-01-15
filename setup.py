@@ -11,7 +11,7 @@ with open(requirements_path, 'r') as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
-    name="GWRF",
+    name="GWXGBoost",
     version="1.0",
     author="ChiBeiSheng",
     url='https://github.com/cbsux/GWsetup.RF/tree/master',
@@ -30,3 +30,4 @@ setuptools.setup(
     ],
     python_requires=">=3.8",
 )
+# twine upload dist/* --username __token__ --password password

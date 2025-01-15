@@ -1,13 +1,13 @@
-# GWRF
+# GWXGBoost
 ## I. Overview
-GWRF (Geographically Weighted Random Forest) is a Python library designed to incorporate the concept of 
-geographical weighting into the random forest model, enabling regression analysis of data with spatial 
+GWXGBoost (Geographically Weighted XGBoost) is a Python library designed to incorporate the concept of 
+geographical weighting into the XGBoost model, enabling regression analysis of data with spatial 
 correlation. It integrates powerful tools such as `numpy`, `xgboost`, and `sklearn`, providing users with a 
 range of functionalities from model training and prediction to feature importance assessment and partial 
 dependence analysis, while also supporting model saving and loading.
 
 ## II. Dependency Libraries
-Before using the GWRF library, ensure that the following dependency libraries are installed:
+Before using the GWXGBoost library, ensure that the following dependency libraries are installed:
 ```bash
 pip install -r requirement.txt
 ```
@@ -15,8 +15,8 @@ pip install -r requirement.txt
 ## III. Usage of the Code
 ### i. Training the Model
 ```python
-from gwrf import GWRF
-model = GWRF(coords, feature, target, n_estimators=10, max_depth=3, bandwidth=10.0, kernel='bisquare',
+from GWXGBoost import GWXGBoost
+model = GWXGBoost(coords, feature, target, n_estimators=10, max_depth=3, bandwidth=10.0, kernel='bisquare',
            criterion='mse', fixed=False, spherical=False, n_jobs=-1, random_state=None, feature_names=None)
 ```
 - `coords`: A two-dimensional array representing the longitude and latitude coordinates of the samples.
@@ -107,7 +107,7 @@ Here is an example of using the GWRF library:
 
 import libpysal as ps
 import numpy as np
-from gwrf import GWRF
+from GWXGBoost import GWXGBoost
 from select_bandwidth import SelectBandwidth
 from sklearn.metrics import r2_score, explained_variance_score, mean_squared_error
 
@@ -130,9 +130,9 @@ print(bw) # 71.0
 
 
 print("######################################\n"
-      "################GWRF##################\n"
+      "################GWXGBoost##################\n"
       "######################################")
-model = GWRF(coords=coords, feature=X, target=y, n_estimators=10,
+model = GWXGBoost(coords=coords, feature=X, target=y, n_estimators=10,
              max_depth=3, bandwidth=71.0, kernel='bisquare', fixed=False, spherical=False,
              n_jobs=4, random_state=1234,
              feature_names=feature_names)

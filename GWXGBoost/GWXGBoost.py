@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 matplotlib.use('TkAgg')
 
 
-class GWRF(BaseEstimator, RegressorMixin):
+class GWXGBoost(BaseEstimator, RegressorMixin):
 
     def __init__(self, coords, feature, target, n_estimators=10, max_depth=3, bandwidth=10.0, kernel='bisquare',
                  criterion='mse', fixed=False, spherical=False, n_jobs=-1, random_state=None, feature_names=None):
