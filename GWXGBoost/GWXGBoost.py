@@ -304,6 +304,6 @@ class GWXGBoost(BaseEstimator, RegressorMixin):
         """
         with open(model_path, 'rb') as f:
             loaded_model = pickle.load(f)
-        if not isinstance(loaded_model, GWRF):
+        if not isinstance(loaded_model, GWXGBoost):
             raise TypeError("The loaded object is not an instance of GWRF.")
         return loaded_model

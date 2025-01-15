@@ -32,14 +32,14 @@ model = GWXGBoost(coords, feature, target, n_estimators=10, max_depth=3, bandwid
 - `n_jobs`: An integer representing the number of parallel computations, defaulting to -1.
 - `random_state`: An integer representing the random seed, defaulting to None.
 - `feature_names`: A list representing the names of the features, defaulting to None.
-- `return`: The GWRF model.<br>
-Initialize a GWRF model using the GWRF class. The input coords are the longitude and latitude coordinates of the samples, feature is the feature data of the samples, and target is the target data of the samples. n_estimators, max_depth, bandwidth, kernel, criterion, fixed, spherical, n_jobs, and random_state represent the parameters of the XGBoost model and the GWRF model, respectively. feature_names are the names of the features.
+- `return`: The GWXGBoost model.<br>
+Initialize a GWXGBoost model using the GWXGBoost class. The input coords are the longitude and latitude coordinates of the samples, feature is the feature data of the samples, and target is the target data of the samples. n_estimators, max_depth, bandwidth, kernel, criterion, fixed, spherical, n_jobs, and random_state represent the parameters of the XGBoost model, respectively. feature_names are the names of the features.
 
 ### ii. Model Training
 ```python
 model.fit()
 ```
-Calling the fit method will train the GWRF model. This method uses Parallel for parallel computation, fitting a local XGBoost model for each sample, calculating weights using spatial information, and performing weighted training.
+Calling the fit method will train the GWXGBoost model. This method uses Parallel for parallel computation, fitting a local XGBoost model for each sample, calculating weights using spatial information, and performing weighted training.
 
 ### iii. Model Prediction
 ```python
@@ -99,10 +99,10 @@ print(bw)
 - `n_jobs`: An integer representing the number of parallel computations, defaulting to 4.
 - `random_state`: An integer representing the random seed, defaulting to 1234.
 - `return`: A floating-point number representing the optimal bandwidth.<br>
-- `Initialize` a bandwidth selector using the SelectBandwidth class. The input coords are the longitude and latitude coordinates of the samples, feature is the feature data of the samples, and target is the target data of the samples. n_estimators, max_depth, kernel, criterion, fixed, spherical, n_jobs, and random_state represent the parameters of the XGBoost model and the GWRF model, respectively. Call the search method for bandwidth selection, returning the optimal bandwidth.
+- `Initialize` a bandwidth selector using the SelectBandwidth class. The input coords are the longitude and latitude coordinates of the samples, feature is the feature data of the samples, and target is the target data of the samples. n_estimators, max_depth, kernel, criterion, fixed, spherical, n_jobs, and random_state represent the parameters of the XGBoost model , respectively. Call the search method for bandwidth selection, returning the optimal bandwidth.
 
 ## IV. Example of Code Usage
-Here is an example of using the GWRF library:
+Here is an example of using the GWXGBoost library:
 ```python
 
 import libpysal as ps
@@ -157,12 +157,12 @@ model.plot_global_partial_dependence(feature_index=[1])
 
 
 #### lobal_feature_importance
-![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/local_feature_importance.png)
+![Image text](https://github.com/cbsux/GWXGBoost/blob/master/doc/images/local_feature_importance.png)
 #### global_feature_importance
-![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/global_feature_importance.png)
+![Image text](https://github.com/cbsux/GWXGBoost/blob/master/doc/images/global_feature_importance.png)
 #### local_partial_dependence
-![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/local_partial_dependence.png)
+![Image text](https://github.com/cbsux/GWXGBoost/blob/master/doc/images/local_partial_dependence.png)
 #### global_partial_dependence
-![Image text](https://github.com/cbsux/GWRF/blob/master/doc/images/global_partial_dependence.png)
+![Image text](https://github.com/cbsux/GWXGBoost/blob/master/doc/images/global_partial_dependence.png)
 
 
