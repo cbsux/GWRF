@@ -14,10 +14,12 @@ pip install -r requirement.txt
 
 ## III. Usage of the Code
 ### i. Training the Model
+
 ```python
-from GWXGBoost import GWXGBoost
+from GWXGBoost import model
+
 model = GWXGBoost(coords, feature, target, n_estimators=10, max_depth=3, bandwidth=10.0, kernel='bisquare',
-           criterion='mse', fixed=False, spherical=False, n_jobs=-1, random_state=None, feature_names=None)
+                  criterion='mse', fixed=False, spherical=False, n_jobs=-1, random_state=None, feature_names=None)
 ```
 - `coords`: A two-dimensional array representing the longitude and latitude coordinates of the samples.
 - `feature`: A two-dimensional array representing the feature data of the samples.
@@ -103,11 +105,12 @@ print(bw)
 
 ## IV. Example of Code Usage
 Here is an example of using the GWXGBoost library:
+
 ```python
 
 import libpysal as ps
 import numpy as np
-from GWXGBoost import GWXGBoost
+from GWXGBoost import model
 from select_bandwidth import SelectBandwidth
 from sklearn.metrics import r2_score, explained_variance_score, mean_squared_error
 
@@ -126,16 +129,15 @@ print("######################################\n"
 bw = SelectBandwidth(coords=coords, feature=X, target=y, n_estimators=10, max_depth=3,
                      kernel='gaussian', criterion='mse', fixed=False, spherical=False, n_jobs=4,
                      random_state=1234).search(verbose=True)
-print(bw) # 71.0
-
+print(bw)  # 71.0
 
 print("######################################\n"
       "################GWXGBoost##################\n"
       "######################################")
 model = GWXGBoost(coords=coords, feature=X, target=y, n_estimators=10,
-             max_depth=3, bandwidth=71.0, kernel='bisquare', fixed=False, spherical=False,
-             n_jobs=4, random_state=1234,
-             feature_names=feature_names)
+                  max_depth=3, bandwidth=71.0, kernel='bisquare', fixed=False, spherical=False,
+                  n_jobs=4, random_state=1234,
+                  feature_names=feature_names)
 print("training")
 model.fit()
 print("predicting")
@@ -151,7 +153,7 @@ print("######################################\n"
 
 model.plot_local_feature_importance(model_index=2)
 model.plot_global_feature_importance(importance_type='gain')
-model.plot_local_partial_dependence(model_index=0, feature_index=[0,1])
+model.plot_local_partial_dependence(model_index=0, feature_index=[0, 1])
 model.plot_global_partial_dependence(feature_index=[1])
 ```
 
