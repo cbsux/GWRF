@@ -100,7 +100,7 @@ class SelectBandwidth(object):
 
     def _create_gwr_func(self):
         def gwr_func(bw):
-            return calculate_cv_value(GWRF(coords=self.coords, feature=self.X_, target=self.Y_,
+            return calculate_cv_value(GWXGBoost(coords=self.coords, feature=self.X_, target=self.Y_,
                                            n_estimators=self.n_estimators, max_depth=self.max_depth,
                                            bandwidth=bw, kernel=self.kernel, criterion=self.criterion,
                                            fixed=self.fixed, spherical=self.spherical, n_jobs=self.n_jobs,
