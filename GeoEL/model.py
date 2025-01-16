@@ -161,8 +161,7 @@ class GWXGBoost(BaseEstimator, RegressorMixin):
         :param importance_type: Importance type, default is 'weight'.
         """
         local_importance = self.get_local_feature_importance(model_index, importance_type=importance_type)
-        print(local_importance)
-        xgb.plot_importance(local_importance, importance_type=importance_type)
+        xgb.plot_importance(local_importance, importance_type=importance_type, grid=False)
         plt.show()
 
     def get_global_feature_importance(self, importance_type='weight'):
@@ -189,7 +188,7 @@ class GWXGBoost(BaseEstimator, RegressorMixin):
         :param importance_type: Importance type, default is 'weight'.
         """
         feature_importance = self.get_global_feature_importance(importance_type=importance_type)
-        xgb.plot_importance(feature_importance, importance_type=importance_type)
+        xgb.plot_importance(feature_importance, importance_type=importance_type, grid=False)
         plt.show()
 
     def get_local_partial_dependence(self, model_index, feature_index, grid_size=100):
