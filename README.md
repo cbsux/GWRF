@@ -179,7 +179,7 @@ This image shows the global feature importance, giving an overall view of featur
 ![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/master/doc/images/local_partial_dependence.png)
 This image shows the local partial dependence, indicating how the target variable changes with a particular feature in a local model, providing insights into local relationships.
 #### global_partial_dependence
-![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/master/doc/images/local_partial_dependence.png)
+![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/master/doc/images/global_partial_dependence.png)
 This image shows the global partial dependence, showing the relationship between a feature and the target variable across the entire dataset, helping to understand the overall relationship.
 
 
