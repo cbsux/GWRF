@@ -173,13 +173,13 @@ gwModel.plot_global_partial_dependence(feature_index=[1])
 ![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/master/doc/images/local_feature_importance.png)
 This image shows the local feature importance, indicating the importance of features for a specific local model. It helps identify which features are more influential in different geographic regions.
 #### global_feature_importance
-![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/blob/master/doc/images/global_feature_importance.png)
+![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/master/doc/images/global_feature_importance.png)
 This image shows the global feature importance, giving an overall view of feature importance across all models, helping to understand which features are most important in the entire dataset.
 #### local_partial_dependence
-![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/blob/master/doc/images/local_partial_dependence.png)
+![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/master/doc/images/local_partial_dependence.png)
 This image shows the local partial dependence, indicating how the target variable changes with a particular feature in a local model, providing insights into local relationships.
 #### global_partial_dependence
-![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/blob/master/doc/images/global_partial_dependence.png)
+![Image text](https://raw.githubusercontent.com/cbsux/GWXGBoost/master/doc/images/local_partial_dependence.png)
 This image shows the global partial dependence, showing the relationship between a feature and the target variable across the entire dataset, helping to understand the overall relationship.
 
 
