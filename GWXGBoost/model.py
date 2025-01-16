@@ -4,8 +4,8 @@ from sklearn.base import BaseEstimator, RegressorMixin
 from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
 from sklearn.inspection import partial_dependence
 from joblib import Parallel, delayed
-from kernels import Kernel
-from tools import create_kdtree, weighted_mse_objective1
+from .kernels import Kernel
+from .utils import create_kdtree, weighted_mse_objective1
 import pickle
 import pandas as pd
 import matplotlib
@@ -18,7 +18,7 @@ class GWXGBoost(BaseEstimator, RegressorMixin):
     def __init__(self, coords, feature, target, n_estimators=10, max_depth=3, bandwidth=10.0, kernel='bisquare',
                  criterion='mse', fixed=False, spherical=False, n_jobs=-1, random_state=None, feature_names=None):
         """
-        Initialize the GWRF model.
+        Initialize the GWXGBoost model.
         :param coords: Coordinate data.
         :param feature: Feature data.
         :param target: Target data.
@@ -109,8 +109,8 @@ class GWXGBoost(BaseEstimator, RegressorMixin):
 
     def fit(self):
         """
-        Fit the GWRF model.
-        :return: The fitted GWRF model.
+        Fit the GWXGBoost model.
+        :return: The fitted GWXGBoost model.
         """
         local_result = Parallel(n_jobs=self.n_jobs)(
             delayed(self._local_fit)(i) for i in range(self.n_samples)
@@ -122,7 +122,7 @@ class GWXGBoost(BaseEstimator, RegressorMixin):
 
     def predict(self, pred_coords, pred_x):
         """
-        Predict using the GWRF model.
+        Predict using the GWXGBoost model.
         :param pred_coords: Coordinates for prediction.
         :param pred_x: Feature data for prediction.
         :return: Predicted values.
