@@ -180,7 +180,7 @@ class GWXGBoost(BaseEstimator, RegressorMixin):
                     total_importance[feature] += value
                 else:
                     total_importance[feature] = value
-        average_importance = {feature: value / len(feature_importance) for feature, value in total_importance.items()}
+        average_importance = {feature: round(value / len(feature_importance), 2) for feature, value in total_importance.items()}
         return average_importance
 
     def plot_global_feature_importance(self, importance_type='weight'):

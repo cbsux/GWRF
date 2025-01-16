@@ -12,7 +12,7 @@ with open(requirements_path, 'r') as f:
 
 setuptools.setup(
     name="GWXGBoost",
-    version="1.0.0",
+    version="0.0.0",
     author="ChiBeiSheng",
     url='https://github.com/cbsux/GWXGBoost',
     author_email="cbs3307821258@qq.com",
