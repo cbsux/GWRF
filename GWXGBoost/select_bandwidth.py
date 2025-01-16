@@ -1,10 +1,10 @@
 import warnings
 import numpy as np
 from scipy.optimize import minimize_scalar
-from tools import create_kdtree
-from model import GWXGBoost
-from search import golden_section, equal_interval
-from diagnostics import calculate_cv_value
+from .utils import create_kdtree
+from .model import GWXGBoost
+from .search import golden_section, equal_interval
+from .diagnostics import calculate_cv_value
 
 
 class SelectBandwidth(object):
