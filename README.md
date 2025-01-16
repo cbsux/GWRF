@@ -1,6 +1,6 @@
 # GWXGBoost
 ## I. Overview
-&emsp;&emsp;GWXGBoost (Geographically Weighted XGBoost) is a Python library designed to incorporate the concept of 
+GWXGBoost (Geographically Weighted XGBoost) is a Python library designed to incorporate the concept of 
 geographical weighting into the XGBoost model, enabling regression analysis of data with spatial 
 correlation. It integrates powerful tools such as `numpy`, `xgboost`, and `sklearn`, providing users with a 
 range of functionalities from model training and prediction to feature importance assessment and partial 
@@ -28,7 +28,7 @@ The GWXGBoost library contains the following several modules:
  - `kernels`: Provides kernel function calculations for geographically weighted models, supports multiple kernel function types, and calculates weight values based on bandwidth and distance, etc.
  - `search`: Provides two bandwidth search methods, the golden section method and the equal-spacing search method, for selecting the optimal bandwidth value.
  - `utils`: Provides some utility functions, such as the calculation of spherical distance, the instantiation of KDTree, the customization of weighted objective functions, etc.<br>
-&emsp;&emsp;GWXGBoost provides a series of functions for spatial data regression analysis. The following part will introduce how to use the GWXGBoost library for model training, prediction, feature importance and local dependency analysis, etc.
+GWXGBoost provides a series of functions for spatial data regression analysis. The following part will introduce how to use the GWXGBoost library for model training, prediction, feature importance and local dependency analysis, etc.
 ### i. Model Initialization
 ```python
 from GWXGBoost.model import GWXGBoost
@@ -49,7 +49,7 @@ gwModel = GWXGBoost(coords, feature, target, n_estimators=10, max_depth=3, bandw
 - `random_state`: An integer representing the random seed, defaulting to None.
 - `feature_names`: A list representing the names of the features, defaulting to None.
 - `return`: The GWXGBoost model.<br>
-&emsp;&emsp;Initialize a GWXGBoost model using the GWXGBoost class. The input coords are the longitude and latitude coordinates of the samples, feature is the feature data of the samples, and target is the target data of the samples. n_estimators, max_depth, bandwidth, kernel, criterion, fixed, spherical, n_jobs, and random_state represent the parameters of the XGBoost model, respectively. feature_names are the names of the features.
+Initialize a GWXGBoost model using the GWXGBoost class. The input coords are the longitude and latitude coordinates of the samples, feature is the feature data of the samples, and target is the target data of the samples. n_estimators, max_depth, bandwidth, kernel, criterion, fixed, spherical, n_jobs, and random_state represent the parameters of the XGBoost model, respectively. feature_names are the names of the features.
 
 ### ii. Model Training
 ```python
@@ -63,7 +63,7 @@ pred = gwModel.predict(pred_coords, pred_x)
 - `pred_coords`: A two-dimensional array representing the longitude and latitude coordinates of the samples to be predicted.
 - `pred_x`: A two-dimensional array representing the feature data of the samples to be predicted.
 - `return`: A one-dimensional array representing the prediction results.<br>
-&emsp;&emsp;Use the `predict()` method to make predictions on new data. The input `pred_coords` are the coordinates of the prediction data, and `pred_x` is the feature data of the prediction. For each prediction sample, a weighted average prediction is made based on its weights (calculated using spatial information) and the trained local models.
+Use the `predict()` method to make predictions on new data. The input `pred_coords` are the coordinates of the prediction data, and `pred_x` is the feature data of the prediction. For each prediction sample, a weighted average prediction is made based on its weights (calculated using spatial information) and the trained local models.
 ### iv. Feature Importance
 ```python
 # Get and plot local feature importance
@@ -77,7 +77,7 @@ gwModel.plot_global_feature_importance(importance_type='weight')
 - `model_index`: An integer representing the index of the local model.
 - `importance_type`: A string representing the type of feature importance, with optional values of weight, gain, and cover, defaulting to weight.
 - `return`: Feature importance.<br>
-&emsp;&emsp; the get_local_feature_importance and plot_local_feature_importance methods to get and plot local feature importance, and use the get_global_feature_importance and plot_global_feature_importance methods to get and plot global feature importance.
+ the get_local_feature_importance and plot_local_feature_importance methods to get and plot local feature importance, and use the get_global_feature_importance and plot_global_feature_importance methods to get and plot global feature importance.
 
 ### v. Partial Dependence Analysis
 ```python
@@ -92,7 +92,7 @@ gwModel.plot_global_partial_dependence(feature_index)
 - `model_index`: An integer representing the index of the local model.
 - `feature_index`: An integer representing the index of the feature.
 - `return`: Partial dependence.<br>
-&emsp;&emsp;Use the get_local_partial_dependence and plot_local_partial_dependence methods to get and plot local partial dependence, and use the get_global_partial_dependence and plot_global_partial_dependence methods to get and plot global partial dependence.
+Use the get_local_partial_dependence and plot_local_partial_dependence methods to get and plot local partial dependence, and use the get_global_partial_dependence and plot_global_partial_dependence methods to get and plot global partial dependence.
 
 ### vi. Bandwidth Selection
 ```python
@@ -113,9 +113,9 @@ print(bw)
 - `n_jobs`: An integer representing the number of parallel computations, defaulting to 4.
 - `random_state`: An integer representing the random seed, defaulting to 1234.
 - `return`: A floating-point number representing the optimal bandwidth.<br>
-&emsp;&emsp;Initialize a bandwidth selector using the `SelectBandwidth` class. The input `coords` are the longitude and latitude coordinates of the samples, `feature` is the feature data of the samples, and `target` is the target data of the samples. `n_estimators`, `max_depth`, `kernel`, `criterion`, `fixed`, `spherical`, `n_jobs`, and `random_state` represent the parameters of the XGBoost model, respectively. Call the `search` method for bandwidth selection, which returns the optimal bandwidth through cross-validation.
+Initialize a bandwidth selector using the `SelectBandwidth` class. The input `coords` are the longitude and latitude coordinates of the samples, `feature` is the feature data of the samples, and `target` is the target data of the samples. `n_estimators`, `max_depth`, `kernel`, `criterion`, `fixed`, `spherical`, `n_jobs`, and `random_state` represent the parameters of the XGBoost model, respectively. Call the `search` method for bandwidth selection, which returns the optimal bandwidth through cross-validation.
 ## IV. Example of Code Usage
-&emsp;&emsp;Here is an example of using the GWXGBoost library:
+Here is an example of using the GWXGBoost library:
 
 ```python
 
