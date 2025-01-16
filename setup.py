@@ -6,13 +6,13 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 # 读取requirements.txt文件
-requirements_path = os.path.join(FILE_PATH, 'requirements.txt')
+requirements_path = os.path.join(FILE_PATH, 'requirement.txt')
 with open(requirements_path, 'r') as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
     name="GWXGBoost",
-    version="1.0",
+    version="1.0.0",
     author="ChiBeiSheng",
     url='https://github.com/cbsux/GWXGBoost',
     author_email="cbs3307821258@qq.com",
@@ -30,4 +30,3 @@ setuptools.setup(
     ],
     python_requires=">=3.8",
 )
-# twine upload dist/* --username __token__ --password password
