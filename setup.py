@@ -11,12 +11,12 @@ with open(requirements_path, 'r') as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
-    name="GWXGBoost",
-    version="0.0.0",
+    name="GeoEL",
+    version="0.0.1",
     author="ChiBeiSheng",
-    url='https://github.com/cbsux/GWXGBoost',
+    url='https://github.com/cbsux/GeoEL',
     author_email="cbs3307821258@qq.com",
-    description="Geographically Weighted XGBoost",
+    description="Geographically Weighted EnsembleLearning",
     long_description=long_description,
     long_description_content_type="text/markdown",
     include_package_data=True,

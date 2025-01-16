@@ -6,9 +6,10 @@ from .model import GWXGBoost
 from .search import golden_section, equal_interval
 from .diagnostics import calculate_cv_value
 
+getModel = {'XGBoost': GWXGBoost}
 
 class SelectBandwidth(object):
-    def __init__(self, coords, feature, target, n_estimators=100, max_depth=None, bandwidth=1.0, kernel='bisquare',
+    def __init__(self, coords, feature, target, model_type='XGBoost', n_estimators=100, max_depth=None, bandwidth=1.0, kernel='bisquare',
                  criterion='mse', fixed=False, spherical=False, n_jobs=-1, random_state=None):
         """
         Initialize the Select_Bandwidth class.
@@ -29,6 +30,7 @@ class SelectBandwidth(object):
         self.coords = coords
         self.X_ = feature
         self.Y_ = target
+        self.model_type = model_type
         self.n_estimators = n_estimators
         self.max_depth = max_depth
         self.bandwidth = bandwidth
@@ -100,7 +102,7 @@ class SelectBandwidth(object):
 
     def _create_gwr_func(self):
         def gwr_func(bw):
-            return calculate_cv_value(GWXGBoost(coords=self.coords, feature=self.X_, target=self.Y_,
+            return calculate_cv_value(getModel[self.model_type](coords=self.coords, feature=self.X_, target=self.Y_,
                                            n_estimators=self.n_estimators, max_depth=self.max_depth,
                                            bandwidth=bw, kernel=self.kernel, criterion=self.criterion,
                                            fixed=self.fixed, spherical=self.spherical, n_jobs=self.n_jobs,

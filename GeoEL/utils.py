@@ -36,7 +36,6 @@ def create_kdtree(coords, algorithm='kd_tree', n_neighbors=15, leaf_size=40, sph
         else:
             kdtree = NearestNeighbors(n_neighbors=n_neighbors, algorithm=algorithm,
                                       leaf_size=leaf_size, metric='euclidean')
-        # 拟合数据
         kdtree.fit(coords)
         return kdtree
     except Exception as e:
