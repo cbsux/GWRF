@@ -123,4 +123,4 @@ print(bw)
 Initialize a bandwidth selector using the `SelectBandwidth` class. The input `coords` are the longitude and latitude coordinates of the samples, `feature` is the feature data of the samples, and `target` is the target data of the samples. `n_estimators`, `max_depth`, `kernel`, `criterion`, `fixed`, `spherical`, `n_jobs`, and `random_state` represent the parameters of the XGBoost model, respectively. Call the `search` method for bandwidth selection, which returns the optimal bandwidth through cross-validation.
 ## IV. Example of Code Usage
 Here are some examples of using the GeoEL library:<br>
-①[GWXGBoost + georgia数据集](https://github.com/cbsux/GeoEL/blob/master/notebook/georgia_example(GWXGBoost).ipynb)
+①[GWXGBoost + georgia dataset](https://github.com/cbsux/GeoEL/blob/master/notebook/georgia_example(GWXGBoost).ipynb)
