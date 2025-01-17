@@ -91,7 +91,6 @@ class GWXGBoost(BaseEstimator, RegressorMixin):
         X_train = pd.DataFrame(np.delete(self.X_, i, axis=0), columns=self.feature_names)
         Y_train = np.delete(self.Y, i, axis=0)
         weights_train = np.delete(weights, i, axis=0)
-
         xgbRegressor = xgb.XGBRegressor(n_estimators=self.n_estimators,
                                         max_depth=self.max_depth,
                                         objective=weighted_mse_objective1,
@@ -118,7 +117,6 @@ class GWXGBoost(BaseEstimator, RegressorMixin):
         local_result_list = list(zip(*local_result))
         self.models = np.array(local_result_list[0]).reshape(-1)
         self.residuals = np.array(local_result_list[1]).reshape(-1)
-        return self
 
     def predict(self, pred_coords, pred_x):
         """
